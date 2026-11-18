@@ -377,8 +377,10 @@ function drawLeadScene(sx, sy) {
   // Broken span at the right end, tilted into the water
   fillPoly([[sx + 842, sy + 124], [sx + 952, sy + 152], [sx + 952, sy + 161], [sx + 842, sy + 133]], DECK);
   fillPoly([[sx + 872, sy + 208], [sx + 922, sy + 220], [sx + 916, sy + 232], [sx + 866, sy + 220]], PIER);
-  fillCircle(sx + 878, sy + 204, 7, WHITE, 0.75);
-  fillCircle(sx + 908, sy + 210, 5, WHITE, 0.7);
+  // Splash dashes where the fallen span meets the water
+  stampLine(sx + 852, sy + 214, sx + 866, sy + 210, 2.4, WHITE, 0.85);
+  stampLine(sx + 924, sy + 224, sx + 938, sy + 220, 2.4, WHITE, 0.85);
+  stampLine(sx + 884, sy + 238, sx + 900, sy + 236, 2.4, WHITE, 0.7);
   // Explosion and smoke at the break
   drawStar(sx + 848, sy + 112, 30, 12, 10, ORANGE);
   drawStar(sx + 848, sy + 112, 16, 6, 10, SUN);
@@ -389,7 +391,7 @@ function drawLeadScene(sx, sy) {
   stampLine(sx + 430, sy + 76, sx + 700, sy + 116, 2, ORANGE, 0.75);
   stampLine(sx + 578, sy + 58, sx + 836, sy + 106, 2, ORANGE, 0.75);
   // The drone swarm
-  const drones = [[60, 30, 9], [132, 58, 11], [206, 24, 8], [286, 66, 10], [362, 36, 9], [432, 80, 11], [506, 28, 8], [576, 62, 10], [652, 40, 9], [716, 86, 11], [772, 30, 8], [906, 68, 9], [162, 98, 8], [622, 106, 8], [92, 88, 10], [822, 98, 8]];
+  const drones = [[60, 30, 9], [132, 58, 11], [206, 24, 8], [286, 66, 10], [362, 36, 9], [432, 80, 11], [506, 28, 8], [576, 62, 10], [652, 40, 9], [716, 86, 11], [772, 30, 8], [906, 68, 9], [162, 98, 8], [622, 106, 8], [92, 88, 10], [822, 98, 8], [345, 106, 6], [478, 98, 6], [255, 112, 6], [688, 116, 6]];
   for (const [dx, dy, s] of drones) drawDrone(sx + dx, sy + dy, s);
   // Frame
   rectOutline(sx, sy, sw, 270, 2.5, INK);
